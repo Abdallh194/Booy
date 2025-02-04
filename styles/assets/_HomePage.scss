@@ -1,0 +1,81 @@
+.HomePage {
+  .container {
+    max-width: 1140px;
+  }
+  .HomePage-Card {
+    position: relative;
+    margin-top: 30px;
+    .name {
+      background-color: $dark-color;
+      color: white;
+      padding: 12px;
+      font-size: 18px;
+    }
+    .main-head {
+      font-family: $sign-font;
+      font-size: 112px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .main-info {
+      margin-top: 80px;
+      padding: 50px 0;
+      font-size: 21px;
+      position: relative;
+      padding-right: 26px;
+      &::before {
+        position: absolute;
+        content: "";
+        width: 15px;
+        height: 100%;
+        right: 0;
+        top: 0;
+        background-color: #e8dcce;
+      }
+    }
+    .whatisMaktabti {
+      background-color: #3d464d;
+      color: white;
+      padding: 30px;
+      margin-top: 70px;
+      text-align: center;
+      .content {
+        border: 1px solid white;
+        padding: 50px;
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+      .head {
+        font-family: "Kufam";
+        font-weight: bold;
+        color: #ffd333;
+        font-size: 28px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    .HomePage-Card {
+      .whatisMaktabti {
+        .content {
+          padding: 29px;
+          font-size: 17px;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    .container {
+      max-width: 665px;
+    }
+  }
+  @media (max-width: 575px) {
+    .HomePage-Card {
+      .main-info {
+        margin-top: 25px;
+      }
+    }
+  }
+}

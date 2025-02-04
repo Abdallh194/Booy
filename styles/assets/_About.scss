@@ -1,0 +1,213 @@
+.About {
+  margin-top: 60px;
+  padding-top: 20px;
+  background-color: $dark-color;
+  .Logo-Card {
+    text-align: center;
+    color: white;
+    padding: 40px 0;
+
+    .icon {
+      font-size: 140px;
+    }
+
+    .searchform {
+      display: flex;
+
+      .form-control {
+        height: 45px;
+        border-radius: 0px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+      }
+      .btn {
+        background-color: $gold-color;
+        color: $dark-color;
+        border-color: $gold-color;
+        width: 150px;
+        border-radius: 0px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+      }
+    }
+    .logo {
+      display: block;
+      margin: 10px auto;
+
+      .pt_01,
+      .pt_02 {
+        font-size: 60px;
+      }
+      .pt_01 {
+        background-color: white;
+        color: $dark-color;
+      }
+    }
+    .desc {
+      margin-top: 10px;
+    }
+    .socials {
+      margin-top: 17px;
+      .social {
+        color: white;
+        margin-right: 14px;
+        border-radius: 50%;
+        .social-icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          padding: 6px;
+        }
+      }
+    }
+  }
+  .Books-Card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width: 575px) {
+    .Logo-Card {
+      padding: 40px 10px;
+      .content {
+        width: 100%;
+      }
+    }
+  }
+  .Books-Card {
+    margin-bottom: 30px;
+  }
+}
+.AboutBooky {
+  padding: 40px 0;
+
+  .Image-Card {
+    margin-top: 85px;
+    position: relative;
+    .desc1,
+    .desc2 {
+      padding: 20px;
+      background-color: $dark-color;
+      color: $gold-color;
+      border-radius: 53px;
+      position: absolute;
+      width: 300px;
+      font-size: 24px;
+    }
+    .desc1 {
+      left: 137px;
+      top: -37px;
+      text-align: end;
+      transform: rotate(-45deg);
+    }
+    .desc2 {
+      bottom: -11px;
+      right: 34px;
+      text-align: start;
+      transform: rotate(-45deg);
+    }
+    .img-container {
+      transform: rotate(45deg);
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .img-fluid {
+      border: 18px solid $gold-color;
+      border-radius: 69px;
+      position: relative;
+      display: block;
+    }
+  }
+  .Text-Card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h3 {
+      margin-top: 112px;
+    }
+    .head {
+      font-size: 90px;
+      font-weight: bold;
+      color: $dark-color;
+      margin-bottom: 15px;
+      .pt_02 {
+        color: $gold-color;
+      }
+    }
+    .desc {
+      color: rgba(0, 0, 0, 0.556);
+      margin: 10px auto;
+    }
+    .btns {
+      width: 60%;
+      margin: 20px auto;
+      margin-top: 30px;
+      padding: 15px;
+      .LoginBtn {
+        background-color: $dark-color;
+        color: white;
+        padding: 10px;
+        width: 150px;
+        font-size: 21px;
+        border-radius: 5px;
+      }
+    }
+  }
+  @media (max-width: 1400px) {
+    .Image-Card {
+      .desc1 {
+        left: -10px;
+        top: -19px;
+      }
+      .desc2 {
+        bottom: -30px;
+        right: 0px;
+      }
+      .desc1,
+      .desc2 {
+        font-size: 20px;
+        padding: 16px;
+      }
+      .img-container {
+        width: 72%;
+        margin: auto;
+      }
+    }
+    .Text-Card {
+      h3 {
+        margin-top: 0;
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    .Text-Card {
+      .btns {
+        width: 100%;
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    .row {
+      flex-direction: column-reverse;
+    }
+  }
+  @media (max-width: 767px) {
+    .Image-Card {
+      margin-top: 20px;
+      .desc1,
+      .desc2 {
+        font-size: 15px;
+        padding: 11px;
+      }
+      .desc1 {
+        left: -8px;
+        top: -45px;
+      }
+      .desc2 {
+        bottom: -48px;
+        right: -5px;
+      }
+    }
+  }
+}

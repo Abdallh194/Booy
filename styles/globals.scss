@@ -1,0 +1,90 @@
+@import "bootstrap/dist/css/bootstrap.css"; //bootstrap
+// fonts
+@import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap"); //main font
+@import url("https://fonts.googleapis.com/css2?family=Kufam:ital@1&display=swap"); //header font
+@import url("https://fonts.googleapis.com/css2?family=Vibes&display=swap"); //sign font
+
+@import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
+
+//vars
+
+$cairo-font: "Cairo";
+$sign-font: "Vibes";
+$main-font: "Cairo";
+$header-font: "Kufam";
+$dark-color: #3d464d;
+$gold-color: #ffd333;
+$blue-color: #45a7ff;
+* {
+  font-family: $main-font;
+  text-decoration: none !important;
+}
+body {
+  direction: rtl !important;
+}
+.logo {
+  .pt_01,
+  .pt_02 {
+    padding: 10px;
+    font-size: 31px;
+  }
+  .pt_01 {
+    padding-left: 0;
+    background-color: $dark-color;
+    color: $gold-color;
+  }
+  .pt_02 {
+    padding-right: 0;
+    background-color: $gold-color;
+    color: $dark-color;
+  }
+}
+.icon {
+  font-size: 27px;
+  padding: 0;
+  position: fixed;
+  bottom: 12%;
+  right: 3%;
+  color: #3d464d;
+  &::before {
+    content: attr(data-length);
+    position: absolute;
+    top: -6px;
+    right: -3px;
+    width: 23px;
+    font-size: 14px;
+    font-weight: 700;
+    height: 23px;
+    text-align: center;
+    background-color: $gold-color;
+    color: black;
+    border-radius: 50%;
+  }
+}
+.pumpCartQuantity {
+  animation: pumping 300ms ease-out;
+}
+
+@keyframes pumping {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(0.8);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@import "assets/Header";
+@import "assets/HomePage";
+@import "assets/About";
+@import "assets/Footer";
+@import "assets/Shop";
+@import "assets/bookcard";

@@ -1,0 +1,128 @@
+.Shop {
+  padding-top: 40px;
+  .Image-Card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 63px;
+    .circle1,
+    .circle2,
+    .circle3 {
+      position: absolute;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .circle1 {
+      width: 350px;
+      height: 350px;
+      background-color: $gold-color;
+      z-index: -1;
+    }
+    .circle2 {
+      width: 450px;
+      height: 450px;
+      background-color: #ffd33361;
+      z-index: -2;
+    }
+    .circle3 {
+      width: 550px;
+      height: 550px;
+      background-color: #ffd3333d;
+      z-index: -3;
+    }
+  }
+  .Text-Card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .head {
+      font-size: 63px;
+      font-weight: bold;
+    }
+    .desc {
+      margin-top: 25px;
+    }
+    .start {
+      background-color: $dark-color;
+      color: $gold-color;
+      width: 200px;
+      text-align: center;
+      cursor: pointer;
+      padding: 10px;
+      border: 5px;
+      margin-top: 30px;
+    }
+    .learn {
+      text-decoration: underline !important;
+      padding: 10px;
+      margin-top: 30px;
+      margin-right: 43px;
+      font-size: 17px;
+      cursor: pointer;
+    }
+  }
+  @media (max-width: 1400px) {
+    .Text-Card {
+      .head {
+        font-size: 56px;
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    .Text-Card {
+      .head {
+        font-size: 47px;
+      }
+    }
+    .Image-Card {
+      .circle1 {
+        width: 300px;
+        height: 300px;
+      }
+      .circle2 {
+        width: 400px;
+        height: 400px;
+      }
+      .circle3 {
+        width: 500px;
+        height: 500px;
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    .Text-Card {
+      text-align: center;
+
+      .btns {
+        justify-content: space-evenly;
+      }
+    }
+    .Image-Card {
+      .circle1 {
+        width: 250px;
+        height: 250px;
+      }
+      .circle2 {
+        width: 350px;
+        height: 350px;
+      }
+      .circle3 {
+        width: 420px;
+        height: 420px;
+      }
+    }
+  }
+  @media (max-width: 575px) {
+    .Text-Card {
+      .head {
+        font-size: 38px;
+      }
+    }
+    .Image-Card {
+      margin-top: 100px;
+    }
+  }
+}
