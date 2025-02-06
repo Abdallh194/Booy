@@ -64,7 +64,20 @@ body {
 .pumpCartQuantity {
   animation: pumping 300ms ease-out;
 }
-
+.favicon {
+  bottom: 20%;
+}
+.empty-cart {
+  width: 390px;
+  margin: auto;
+  text-align: center;
+  p {
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+}
 @keyframes pumping {
   0% {
     transform: scale(1);
@@ -82,9 +95,14 @@ body {
     transform: scale(1);
   }
 }
+.reverse-Direction {
+  direction: ltr !important;
+}
 @import "assets/Header";
 @import "assets/HomePage";
 @import "assets/About";
 @import "assets/Footer";
 @import "assets/Shop";
 @import "assets/bookcard";
+@import "assets/Categoris";
+@import "assets/cart";

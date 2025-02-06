@@ -55,6 +55,22 @@ body {
   animation: pumping 300ms ease-out;
 }
 
+.favicon {
+  bottom: 20%;
+}
+
+.empty-cart {
+  width: 390px;
+  margin: auto;
+  text-align: center;
+}
+.empty-cart p {
+  color: red;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
 @keyframes pumping {
   0% {
     transform: scale(1);
@@ -72,6 +88,10 @@ body {
     transform: scale(1);
   }
 }
+.reverse-Direction {
+  direction: ltr !important;
+}
+
 .navbar {
   background-color: white !important;
   padding: 30px 0 !important;
@@ -527,6 +547,39 @@ footer .copy a {
   font-size: 17px;
   cursor: pointer;
 }
+.Shop .headers {
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.Shop .searchBox {
+  width: 356px;
+  display: flex;
+  align-items: center;
+}
+.Shop .searchBox .form-control,
+.Shop .searchBox .btn {
+  height: 45px;
+  border-radius: 0;
+  color: #ffd333;
+}
+.Shop .searchBox .btn {
+  background-color: #3d464d;
+  border-color: #3d464d;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.Shop .searchBox .form-control {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.Shop .head {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.Shop .selectCategories {
+  width: 350px;
+}
 @media (max-width: 1400px) {
   .Shop .Text-Card .head {
     font-size: 56px;
@@ -567,6 +620,16 @@ footer .copy a {
   .Shop .Image-Card .circle3 {
     width: 420px;
     height: 420px;
+  }
+  .Shop .headers {
+    display: block !important;
+  }
+  .Shop .fillter {
+    margin-top: 20px;
+  }
+  .Shop .searchBox,
+  .Shop .selectCategories {
+    width: 100%;
   }
 }
 @media (max-width: 575px) {
@@ -634,6 +697,11 @@ footer .copy a {
   font-weight: 700;
   color: black;
   background-color: #ffd333;
+}
+.book-Card .dlt {
+  color: red;
+  font-size: 20px;
+  cursor: pointer;
 }
 .book-Card:hover::before {
   bottom: -261px;
@@ -730,5 +798,168 @@ footer .copy a {
   .book-Card:hover::after {
     transform: rotate(27deg);
     left: -30px;
+  }
+}
+
+.Categoris {
+  margin-top: 90px !important;
+}
+.Categoris .categoris-Card {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 20px 0;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  width: calc(20% - 30px);
+  margin: 15px auto;
+  border-radius: 10px;
+  color: black;
+}
+.Categoris .categoris-Card .BookDetails {
+  margin-right: 12px;
+}
+.Categoris .categoris-Card .BookDetails .num {
+  margin-top: 5px;
+}
+.Categoris .categoris-Card .BookDetails .title {
+  font-weight: 700;
+}
+@media (max-width: 1400px) {
+  .Categoris .categoris-Card {
+    padding: 20px 8px 20px 0;
+    width: calc(20% - 10px);
+  }
+  .Categoris .categoris-Card .BookDetails {
+    margin-right: 2px;
+  }
+}
+@media (max-width: 1200px) {
+  .Categoris .categoris-Card {
+    width: calc(20% - 22px);
+  }
+  .Categoris .categoris-Card .img-fluid {
+    width: 45px;
+  }
+  .Categoris .categoris-Card .BookDetails {
+    font-size: 13px;
+  }
+}
+@media (max-width: 992px) {
+  .Categoris .categoris-Card {
+    width: 30%;
+  }
+  .Categoris .categoris-Card .img-fluid {
+    width: 70px;
+  }
+  .Categoris .categoris-Card .BookDetails {
+    font-size: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .Categoris .categoris-Card {
+    width: 48%;
+    padding-right: 2px;
+    margin: 4px auto;
+  }
+  .Categoris .categoris-Card .img-fluid {
+    width: 57px;
+  }
+  .Categoris .categoris-Card .BookDetails .num {
+    font-size: 13px;
+  }
+  .Categoris .categoris-Card .BookDetails .title {
+    font-size: 15px;
+  }
+}
+
+.cart .cart-headers {
+  margin-bottom: 20px;
+  box-shadow: 0 0 9px #eaeaea;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: 600;
+  align-items: center;
+}
+.cart .dlt {
+  color: red;
+}
+.cart .back-shop {
+  width: 187px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px;
+  color: #ffd333;
+  background-color: #3d464d;
+  border: 1px solid #3d464d;
+  font-size: 17px;
+  display: block;
+  margin-top: 30px;
+}
+.cart .cart-bill {
+  margin-top: 50px;
+}
+.cart .g-btn {
+  width: 180px;
+  background-color: #3d464d;
+  color: #ffd333;
+}
+.cart .form {
+  align-items: center;
+}
+.cart .form .form-control,
+.cart .form .btn {
+  height: 50px;
+  border-radius: 0;
+}
+.cart .form .form-control {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.cart .form .btn {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  line-height: 2.2;
+}
+.cart .bill-head {
+  font-size: 17px;
+  font-weight: 600;
+  color: #464646;
+}
+.cart .head {
+  font-size: 22px;
+  font-weight: 700;
+  color: #db4444;
+}
+.cart .total-card {
+  padding-right: 45px;
+  position: relative;
+}
+.cart .total-card::before {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 100%;
+  right: -2px;
+  top: 0;
+  background-color: rgba(255, 235, 0, 0.2);
+}
+@media (max-width: 992px) {
+  .cart .total-card {
+    padding-right: 0;
+    margin: 35px 0;
+  }
+  .cart .total-card::before {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .cart .d-none-inmobile {
+    display: none;
+  }
+  .cart .cart-title {
+    width: 20%;
+  }
+  .cart .checkout-btn {
+    display: block;
+    margin: auto;
   }
 }/*# sourceMappingURL=globals.css.map */

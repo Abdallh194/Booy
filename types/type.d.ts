@@ -48,3 +48,19 @@ declare interface ICartState {
   UserOrders: TDataType;
   confirmorder: boolean;
 }
+
+declare type TCatType = {
+  id: number;
+  title: string;
+  num: num;
+  img: string;
+  cat: string;
+}[];
+declare interface ICategories {
+  Categories: TCatType;
+  loading: TLoading;
+  error: string | null;
+}
+declare interface ICartProps {
+  CartInfo: TDataType;
+}

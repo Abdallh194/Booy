@@ -1,26 +1,33 @@
 "use client";
-import React from "react";
 import BookLoop from "@/components/BookLoop/BookLoop";
+import Categories from "@/components/Categories/Categories";
+import Headers from "./Headers";
+import QuantityCounter from "./QuantityCounter";
 import useShop from "@/hooks/useShop";
+import useWishlist from "@/hooks/useWishlist";
+import useCategoreis from "@/hooks/useCategoreis";
+import useCart from "@/hooks/useCart";
 import Image from "next/image";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaBookOpenReader } from "react-icons/fa6";
 import { MdOutlineTouchApp } from "react-icons/md";
-import useCart from "@/hooks/useCart";
 import { CiShoppingBasket } from "react-icons/ci";
-import QuantityCounter from "./QuantityCounter";
+import { HiHeart } from "react-icons/hi";
 
 const Page = () => {
   const {
-    ProductsFullInfo,
     error,
     loading,
     RemaingHandler,
     isDisabled,
     setisDisabled,
+    setselectedcat,
+    filteredBooks,
   } = useShop();
 
-  const { TotalQuantity, quantityStyle } = useCart();
+  const { TotalQuantity, quantityStyle, wishlistStyle } = useCart();
+  const { WishListWithQuantity } = useWishlist();
+  const { loadingcat, CategoriesData } = useCategoreis();
 
   return (
     <div className="Shop">
@@ -57,9 +64,18 @@ const Page = () => {
           </Col>
         </Row>
       </Container>
+      <Container fluid>
+        <Categories
+          loading={loadingcat}
+          Categories={CategoriesData}
+          error={null}
+        />
+      </Container>
+
       <Container style={{ maxWidth: "1575px" }}>
+        <Headers setselectedcat={setselectedcat} />
         <BookLoop
-          Books={ProductsFullInfo}
+          Books={filteredBooks}
           loading={loading}
           error={error}
           RemaingHandler={RemaingHandler}
@@ -74,6 +90,17 @@ const Page = () => {
           length={TotalQuantity}
         >
           <CiShoppingBasket />
+        </QuantityCounter>
+      ) : (
+        ""
+      )}
+      {WishListWithQuantity.length > 0 ? (
+        <QuantityCounter
+          className={`icon favicon ${wishlistStyle}`}
+          to="/Wishlist"
+          length={WishListWithQuantity.length}
+        >
+          <HiHeart />
         </QuantityCounter>
       ) : (
         ""

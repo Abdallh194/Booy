@@ -1,0 +1,95 @@
+.cart {
+  .cart-headers {
+    margin-bottom: 20px;
+    box-shadow: 0 0 9px #eaeaea;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 600;
+    // margin-top: 50px;
+    align-items: center;
+  }
+  .dlt {
+    color: red;
+  }
+  .back-shop {
+    width: 187px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px;
+    color: $gold-color;
+    background-color: $dark-color;
+    border: 1px solid $dark-color;
+    font-size: 17px;
+    display: block;
+    margin-top: 30px;
+  }
+  .cart-bill {
+    margin-top: 50px;
+  }
+  .g-btn {
+    width: 180px;
+    background-color: $dark-color;
+    color: $gold-color;
+  }
+  .form {
+    align-items: center;
+    .form-control,
+    .btn {
+      height: 50px;
+      border-radius: 0;
+    }
+    .form-control {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+    .btn {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      line-height: 2.2;
+    }
+  }
+  .bill-head {
+    font-size: 17px;
+    font-weight: 600;
+    color: #464646;
+  }
+  .head {
+    font-size: 22px;
+    font-weight: 700;
+    color: #db4444;
+  }
+  .total-card {
+    padding-right: 45px;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 16px;
+      height: 100%;
+      right: -2px;
+      top: 0;
+      background-color: #ffeb0033;
+    }
+  }
+  @media (max-width: 992px) {
+    .total-card {
+      padding-right: 0;
+      margin: 35px 0;
+      &::before {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    .d-none-inmobile {
+      display: none;
+    }
+    .cart-title {
+      width: 20%;
+    }
+    .checkout-btn {
+      display: block;
+      margin: auto;
+    }
+  }
+}

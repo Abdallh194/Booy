@@ -57,7 +57,11 @@
     color: black;
     background-color: #ffd333;
   }
-
+  .dlt {
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+  }
   &:hover {
     &::before {
       bottom: -261px;

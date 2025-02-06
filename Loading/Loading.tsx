@@ -19,12 +19,13 @@ const Loading = ({ error, status, children }: LoadingProps) => {
 
   if (status == "failed") {
     return (
-      <>
+      <div className="empty-cart">
         <Lottie animationData={errorAnimation} />
         <h1>{error}</h1>
-      </>
+      </div>
     );
   }
+
   return <>{children}</>;
 };
 

@@ -12,6 +12,7 @@ const GetAllBooksThunck = createAsyncThunk(
     const { rejectWithValue } = thunkapi;
     try {
       const req = await axios.get<TDataType>("/books");
+
       return req.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {

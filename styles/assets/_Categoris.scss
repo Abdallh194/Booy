@@ -1,0 +1,72 @@
+.Categoris {
+  margin-top: 90px !important;
+  .categoris-Card {
+    display: flex;
+    align-items: center;
+    padding: 20px 20px 20px 0;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+      rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    width: calc(100% / 5 - 30px);
+    margin: 15px auto;
+    border-radius: 10px;
+    color: black;
+    .BookDetails {
+      margin-right: 12px;
+      .num {
+        margin-top: 5px;
+      }
+      .title {
+        font-weight: 700;
+      }
+    }
+  }
+  @media (max-width: 1400px) {
+    .categoris-Card {
+      padding: 20px 8px 20px 0;
+      width: calc(20% - 10px);
+      .BookDetails {
+        margin-right: 2px;
+      }
+    }
+  }
+  @media (max-width: 1200px) {
+    .categoris-Card {
+      width: calc(20% - 22px);
+      .img-fluid {
+        width: 45px;
+      }
+      .BookDetails {
+        font-size: 13px;
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    .categoris-Card {
+      width: 30%;
+      .img-fluid {
+        width: 70px;
+      }
+      .BookDetails {
+        font-size: 15px;
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    .categoris-Card {
+      width: 48%;
+      padding-right: 2px;
+      .img-fluid {
+        width: 57px;
+      }
+      margin: 4px auto;
+      .BookDetails {
+        .num {
+          font-size: 13px;
+        }
+        .title {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
