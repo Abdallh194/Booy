@@ -64,3 +64,12 @@ declare interface ICategories {
 declare interface ICartProps {
   CartInfo: TDataType;
 }
+
+declare type IFormData = {
+  formData: {
+    name: string;
+    email: string;
+    phone: number;
+    address: string;
+  };
+};

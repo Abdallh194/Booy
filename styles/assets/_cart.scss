@@ -48,11 +48,7 @@
       line-height: 2.2;
     }
   }
-  .bill-head {
-    font-size: 17px;
-    font-weight: 600;
-    color: #464646;
-  }
+
   .head {
     font-size: 22px;
     font-weight: 700;
@@ -70,6 +66,9 @@
       top: 0;
       background-color: #ffeb0033;
     }
+  }
+  .checkout-btn {
+    margin-right: 35px;
   }
   @media (max-width: 992px) {
     .total-card {
@@ -89,7 +88,7 @@
     }
     .checkout-btn {
       display: block;
-      margin: auto;
+      margin: 20px auto;
     }
   }
 }

@@ -1,10 +1,12 @@
+import { DeleteItemFromCard } from "@/Redux/features/Cart/CartSlice";
+import { useAppDispatch } from "@/Redux/hooks";
 import Image from "next/image";
 import React, { memo } from "react";
 import { Col, Row } from "react-bootstrap";
 import { FaRegTrashCan } from "react-icons/fa6";
 
 const BooksCartView = ({ CartInfo }: ICartProps) => {
-  console.log(CartInfo);
+  const dispatch = useAppDispatch();
 
   return (
     <>
@@ -32,7 +34,13 @@ const BooksCartView = ({ CartInfo }: ICartProps) => {
             <Col xs={2} className="d-none-inmobile">
               {b.cat}
             </Col>
-            <Col className="cart-title dlt" xs={2}>
+            <Col
+              className="cart-title dlt"
+              xs={2}
+              onClick={() => {
+                dispatch(DeleteItemFromCard(b.id));
+              }}
+            >
               <FaRegTrashCan />
             </Col>
           </Row>

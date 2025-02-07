@@ -92,6 +92,21 @@ body {
   direction: ltr !important;
 }
 
+.bill-head {
+  font-size: 17px;
+  font-weight: 600;
+  color: #464646;
+}
+
+.confirmorderbtn {
+  background-color: green;
+  color: #fff;
+  padding: 6px;
+  width: 110px;
+  text-align: center;
+  border-radius: 6px;
+}
+
 .navbar {
   background-color: white !important;
   padding: 30px 0 !important;
@@ -919,11 +934,6 @@ footer .copy a {
   border-bottom-left-radius: 5px;
   line-height: 2.2;
 }
-.cart .bill-head {
-  font-size: 17px;
-  font-weight: 600;
-  color: #464646;
-}
 .cart .head {
   font-size: 22px;
   font-weight: 700;
@@ -941,6 +951,9 @@ footer .copy a {
   right: -2px;
   top: 0;
   background-color: rgba(255, 235, 0, 0.2);
+}
+.cart .checkout-btn {
+  margin-right: 35px;
 }
 @media (max-width: 992px) {
   .cart .total-card {
@@ -960,6 +973,43 @@ footer .copy a {
   }
   .cart .checkout-btn {
     display: block;
-    margin: auto;
+    margin: 20px auto;
+  }
+}
+
+.Checkout .userform .form-control {
+  margin: 10px auto;
+  height: 50px;
+  width: calc(50% - 20px);
+}
+.Checkout .card-content {
+  background-color: transparent !important;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+}
+.Checkout .card-content .input {
+  border-radius: 4px;
+  height: 50px;
+  background-color: white;
+}
+.Checkout .css-iw6twm-JoyButton-root.Mui-disabled {
+  background-color: green;
+  color: white;
+}
+.Checkout .confirm-orders {
+  background-color: #3d464d;
+  color: #ffd333;
+  display: block;
+  text-align: center;
+  padding: 10px;
+  margin-top: 30px;
+}
+.Checkout .confirmorderbtn {
+  background-color: green;
+}
+@media (max-width: 992px) {
+  .Checkout .userform .form-control {
+    width: 100% !important;
   }
 }/*# sourceMappingURL=globals.css.map */

@@ -1,0 +1,44 @@
+.Checkout {
+  .userform {
+    .form-control {
+      margin: 10px auto;
+      height: 50px;
+      width: calc(100% / 2 - 20px);
+    }
+  }
+
+  .card-content {
+    background-color: transparent !important;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+
+    .input {
+      border-radius: 4px;
+      height: 50px;
+      background-color: white;
+    }
+  }
+  .css-iw6twm-JoyButton-root.Mui-disabled {
+    background-color: green;
+    color: white;
+  }
+  .confirm-orders {
+    background-color: $dark-color;
+    color: $gold-color;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+  }
+  .confirmorderbtn {
+    background-color: green;
+  }
+  @media (max-width: 992px) {
+    .userform {
+      .form-control {
+        width: 100% !important;
+      }
+    }
+  }
+}

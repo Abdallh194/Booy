@@ -98,6 +98,19 @@ body {
 .reverse-Direction {
   direction: ltr !important;
 }
+.bill-head {
+  font-size: 17px;
+  font-weight: 600;
+  color: #464646;
+}
+.confirmorderbtn {
+  background-color: green;
+  color: #fff;
+  padding: 6px;
+  width: 110px;
+  text-align: center;
+  border-radius: 6px;
+}
 @import "assets/Header";
 @import "assets/HomePage";
 @import "assets/About";
@@ -106,3 +119,4 @@ body {
 @import "assets/bookcard";
 @import "assets/Categoris";
 @import "assets/cart";
+@import "assets/Checkout";

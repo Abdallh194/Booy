@@ -30,7 +30,6 @@ const useCart = () => {
       return;
     }
     setIsAnimate(true);
-
     const debounce = setTimeout(() => {
       setIsAnimate(false);
     }, 300);

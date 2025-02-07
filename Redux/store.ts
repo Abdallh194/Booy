@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import BooksSlice from "./features/Books/BooksSlice";
 import CartSlice from "./features/Cart/CartSlice";
 import WishlistSlice from "./features/Wishlist/WishlistSlice";
+import OrderSlice from "./features/Orders/OrderSlice";
 
 export const makeStore = () => {
   return configureStore({
@@ -9,6 +10,7 @@ export const makeStore = () => {
       books: BooksSlice,
       cart: CartSlice,
       wishlist: WishlistSlice,
+      order: OrderSlice,
     },
   });
 };
