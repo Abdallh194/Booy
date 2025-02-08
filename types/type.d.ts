@@ -1,4 +1,5 @@
 declare type IBook = {
+  orderId: number;
   id: number;
   img: string;
   title: string;
