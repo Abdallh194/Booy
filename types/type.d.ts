@@ -75,7 +75,7 @@ declare type IFormData = {
     phone: number;
     address: string;
   };
-  orderId: number;
+  orderId?: number;
 };
 declare interface IOrdersProps {
   UserData: IFormData;
