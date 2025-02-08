@@ -8,6 +8,8 @@ const useCheckout = () => {
   const dispatch = useAppDispatch();
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
+  const [orderId] = useState(() => Date.now());
+
   const [UserInfo, setUserInfo] = useState<IFormData>({
     formData: {
       name: "",
@@ -15,6 +17,7 @@ const useCheckout = () => {
       phone: 0,
       address: "",
     },
+    orderId: 0,
   });
 
   useEffect(() => {
@@ -41,6 +44,7 @@ const useCheckout = () => {
     handleShow,
     show,
     setShow,
+    orderId,
   };
 };
 export default useCheckout;

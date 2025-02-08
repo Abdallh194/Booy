@@ -1,10 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-declare interface IOrdersProps {
-  UserData: IFormData;
-  OrderData: TDataType;
-}
-
 const initialState: IOrdersProps = {
   UserData: {
     formData: {
@@ -13,22 +8,36 @@ const initialState: IOrdersProps = {
       phone: 0,
       address: "",
     },
+    orderId: 0,
   },
   OrderData: [],
 };
 
 const OrderSlice = createSlice({
-  name: "wishlist",
+  name: "orders",
   initialState,
   reducers: {
-    ConfirmAddOrder: (state, action) => {
-      state.OrderData.push(...action.payload);
-    },
-    GetUserData: (state, action) => {
-      state.UserData = action.payload;
+    UpdateOrderAndUser: (state, action) => {
+      const { orderId, UserData, OrderData } = action.payload;
+
+      state.UserData = {
+        ...state.UserData,
+        formData: {
+          ...state.UserData.formData,
+          ...UserData,
+        },
+        orderId: orderId ?? state.UserData.orderId,
+      };
+
+      if (OrderData) {
+        state.OrderData.push({
+          orderId: orderId,
+          ...OrderData,
+        });
+      }
     },
   },
 });
 
-export const { ConfirmAddOrder, GetUserData } = OrderSlice.actions;
+export const { UpdateOrderAndUser } = OrderSlice.actions;
 export default OrderSlice.reducer;

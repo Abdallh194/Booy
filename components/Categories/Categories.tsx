@@ -5,8 +5,6 @@ import React, { memo } from "react";
 import { Col, Row } from "react-bootstrap";
 
 const Categories = ({ loading, Categories }: ICategories) => {
-  console.log("cat");
-
   return (
     <Loading error={null} status={loading}>
       <Row className="Categoris">

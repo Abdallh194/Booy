@@ -1003,13 +1003,30 @@ footer .copy a {
   display: block;
   text-align: center;
   padding: 10px;
+  cursor: pointer;
   margin-top: 30px;
-}
-.Checkout .confirmorderbtn {
-  background-color: green;
 }
 @media (max-width: 992px) {
   .Checkout .userform .form-control {
     width: 100% !important;
   }
+}
+
+.order form {
+  align-items: center;
+}
+.order form .form-control,
+.order form .searchbtn {
+  height: 50px;
+  border-radius: 0;
+}
+.order form .form-control {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.order form .searchbtn {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #3d464d;
+  color: #ffd333;
 }/*# sourceMappingURL=globals.css.map */

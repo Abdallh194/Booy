@@ -9,6 +9,7 @@ declare type IBook = {
   isLiked: boolean;
 };
 declare type TDataType = {
+  orderId: number;
   id: number;
   img: string;
   title: string;
@@ -18,6 +19,7 @@ declare type TDataType = {
   max: number;
   isLiked: boolean;
 }[];
+
 declare interface BooksListProps {
   Books: IBook[];
   isfav?: boolean;
@@ -72,4 +74,9 @@ declare type IFormData = {
     phone: number;
     address: string;
   };
+  orderId: number;
 };
+declare interface IOrdersProps {
+  UserData: IFormData;
+  OrderData: TDataType;
+}

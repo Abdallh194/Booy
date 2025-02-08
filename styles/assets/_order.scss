@@ -1,0 +1,20 @@
+.order {
+  form {
+    align-items: center;
+    .form-control,
+    .searchbtn {
+      height: 50px;
+      border-radius: 0;
+    }
+    .form-control {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+    .searchbtn {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      background-color: $dark-color;
+      color: $gold-color;
+    }
+  }
+}

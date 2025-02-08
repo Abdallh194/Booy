@@ -23,7 +23,7 @@ const BookLoop: React.FC<BooksListProps> = ({
   isfav,
 }) => {
   const dispatch = useAppDispatch();
-  console.log("boo");
+
   return (
     <Loading status={loading} error={error}>
       <Row>
