@@ -71,6 +71,10 @@ body {
   margin-top: 10px;
 }
 
+.loading-book {
+  width: 200px;
+}
+
 @keyframes pumping {
   0% {
     transform: scale(1);
@@ -1010,6 +1014,9 @@ footer .copy a {
   .Checkout .userform .form-control {
     width: 100% !important;
   }
+  .Checkout .confirm-orders {
+    margin: 30px auto;
+  }
 }
 
 .order form {
@@ -1029,4 +1036,38 @@ footer .copy a {
   border-bottom-left-radius: 5px;
   background-color: #3d464d;
   color: #ffd333;
+}
+.order .row {
+  margin-top: 40px;
+}
+.order .border-left {
+  position: relative;
+  padding-left: 45px;
+}
+.order .border-left::before {
+  position: absolute;
+  content: "";
+  left: 12px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1803921569);
+}
+.order .card-head {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+@media (max-width: 992px) {
+  .order .order-card {
+    margin: 20px 0px;
+    border-bottom: 1px solid rgb(231, 231, 231);
+    padding-bottom: 22px;
+  }
+  .order .border-left {
+    padding-left: 10px;
+  }
+  .order .border-left::before {
+    display: none;
+  }
 }/*# sourceMappingURL=globals.css.map */

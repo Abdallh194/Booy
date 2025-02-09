@@ -81,3 +81,37 @@ declare interface IOrdersProps {
   UserData: IFormData;
   OrderData: TDataType;
 }
+
+declare interface CartItem {
+  orderId: number;
+  id: number;
+  img: string;
+  title: string;
+  cat: string;
+  price: number;
+  Qunatity: number;
+  max: number;
+  isLiked: boolean;
+}
+
+declare interface UserInfo {
+  formData: {
+    name: string;
+    email: string;
+    phone: number;
+    address: string;
+  };
+}
+
+declare type Order = {
+  orderId: number;
+  CartInfo: CartItem[];
+  UserInfo: {
+    formData: {
+      name: string;
+      email: string;
+      phone: number;
+      address: string;
+    };
+  };
+};

@@ -17,4 +17,39 @@
       color: $gold-color;
     }
   }
+  .row {
+    margin-top: 40px;
+  }
+  .border-left {
+    position: relative;
+    padding-left: 45px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      left: 12px;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background-color: #0000002e;
+    }
+  }
+  .card-head {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  @media (max-width: 992px) {
+    .order-card {
+      margin: 20px 0px;
+      border-bottom: 1px solid rgb(231, 231, 231);
+      padding-bottom: 22px;
+    }
+    .border-left {
+      padding-left: 10px;
+      &::before {
+        display: none;
+      }
+    }
+  }
 }

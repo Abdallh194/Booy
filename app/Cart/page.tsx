@@ -5,13 +5,16 @@ import BooksCartView from "@/components/cart/BooksCartView";
 import TotalCard from "@/components/cart/TotalCard";
 import useCart from "@/hooks/useCart";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import empty from "@/assets/LottieFiles/empty.json";
 import dynamic from "next/dynamic";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 const Page = () => {
   const { CartInfo, SubTotal } = useCart();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [SubTotal]);
 
   return (
     <Container style={{ maxWidth: "1575px" }} className="cart">

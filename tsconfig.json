@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/Orders/page.tsx"
+    "app/Orders/page.tsx",
+    "hooks/useOrder.js"
   ],
   "exclude": ["node_modules"]
 }
