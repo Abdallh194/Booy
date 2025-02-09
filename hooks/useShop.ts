@@ -53,6 +53,7 @@ const useShop = () => {
     setisDisabled,
     setselectedcat,
     filteredBooks,
+    selectedCat,
   };
 };
 

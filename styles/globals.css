@@ -1058,6 +1058,9 @@ footer .copy a {
   font-weight: 600;
   margin-bottom: 15px;
 }
+.order .mt-4 {
+  margin-top: 0 !important;
+}
 @media (max-width: 992px) {
   .order .order-card {
     margin: 20px 0px;
@@ -1070,4 +1073,40 @@ footer .copy a {
   .order .border-left::before {
     display: none;
   }
+}
+
+.Stories {
+  margin-top: 40px;
+}
+.Stories .header {
+  font-size: 32px;
+  text-align: center;
+}
+.Stories .Story-Card {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Stories .Story-Card .desc {
+  margin-top: 15px;
+}
+.Stories .Story-Card .more {
+  margin-top: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #3d464d;
+  color: #ffd333;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.Stories .Image-Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Stories .Image-Card .img-fluid {
+  display: block;
+  margin: 10px auto;
 }/*# sourceMappingURL=globals.css.map */

@@ -1,22 +1,11 @@
-import { useAppSelector } from "@/Redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
 import { useEffect, useRef, useState } from "react";
 
 const useOrder = () => {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const { OrderData } = useAppSelector((state) => state.order);
   const [loading, isloading] = useState(false);
-  const [searchedOrder, setSearchedOrder] = useState({
-    orderId: 0,
-    CartInfo: [],
-    UserInfo: {
-      formData: {
-        name: "Abdallh Sabry",
-        email: "Example@example.com",
-        phone: 1,
-        address: "قطور الغربيه, قطور",
-      },
-    },
-  });
+  const [searchedOrder, setSearchedOrder] = useState<Order>();
   const SubTotal = () => {
     let total = 0;
     searchedOrder?.CartInfo.forEach(
@@ -24,7 +13,9 @@ const useOrder = () => {
     );
     return total;
   };
-  const handleSearch = (e) => {
+
+  const dispatch = useAppDispatch();
+  const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (inputRef.current) {
       const orderId = +inputRef.current.value;
@@ -41,6 +32,6 @@ const useOrder = () => {
     }, 1000);
     return () => clearTimeout(debounce);
   }, [searchedOrder, loading]);
-  return { inputRef, searchedOrder, handleSearch, SubTotal, loading };
+  return { inputRef, searchedOrder, handleSearch, SubTotal, loading, dispatch };
 };
 export default useOrder;

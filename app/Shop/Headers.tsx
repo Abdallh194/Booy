@@ -6,8 +6,9 @@ import { Form, FormControl } from "react-bootstrap";
 
 declare type THeaderProps = {
   setselectedcat: (value: string) => void;
+  selectedCat: string;
 };
-const Headers = ({ setselectedcat }: THeaderProps) => {
+const Headers = ({ setselectedcat, selectedCat }: THeaderProps) => {
   return (
     <div className="headers d-flex justify-content-between">
       <div className="head">تسوق الكتب الان</div>
@@ -20,10 +21,11 @@ const Headers = ({ setselectedcat }: THeaderProps) => {
         <Form.Select
           aria-label="Default select example"
           className="selectCategories"
+          value={selectedCat}
           onChange={(e) => setselectedcat(e.target.value)}
         >
           {bookCategories.map((category, index) => (
-            <option key={index} value={category} selected={category === "All"}>
+            <option key={index} value={category}>
               {category === "All" ? "كل الكتب" : category}
             </option>
           ))}

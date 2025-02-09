@@ -12,12 +12,20 @@ import { MdAttachEmail } from "react-icons/md";
 import empty from "@/assets/LottieFiles/empty.json";
 import loadingAnimation from "@/assets/LottieFiles/loadingAnimation.json";
 import dynamic from "next/dynamic";
+import Breadcrumbs from "@/components/Breadcrumb";
+import { DeleteOrderByOrderId } from "@/Redux/features/Orders/OrderSlice";
+import { useAppDispatch } from "@/Redux/hooks";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 const Page = () => {
   const { handleSearch, inputRef, searchedOrder, SubTotal, loading } =
     useOrder();
+  const dispatch = useAppDispatch();
+
   return (
     <Container className="order">
+      <div className="reverse-Direction">
+        <Breadcrumbs />
+      </div>
       <h3 className="head mt-5">إبحث عن طلبك بواسطة رقم الاوردر</h3>
 
       <Form className="d-flex mt-3" onSubmit={handleSearch}>
@@ -41,34 +49,44 @@ const Page = () => {
                 <Lottie animationData={loadingAnimation} />
               </div>
             ) : (
-              <Row>
-                <Col md={12} lg={4} className="border-left order-card">
-                  <ProductBillDetails CartInfo={searchedOrder.CartInfo} />
-                  <hr />
-                  <div className="d-flex justify-content-between">
-                    <div className="bill-head">الإجمالي</div>
-                    <div className="bill-head">{SubTotal()} جنيه </div>
-                  </div>
-                </Col>
-                <Col md={12} lg={4} className="border-left order-card">
-                  <ProductsDetails CartInfo={searchedOrder.CartInfo} />
-                </Col>
-                <Col md={12} lg={4} className="order-card">
-                  <div className="card-head">معلومات التوصيل </div>
-                  <div className="bill-head m-2">
-                    <IoMdPerson /> {searchedOrder.UserInfo.formData.name}
-                  </div>
-                  <div className="bill-head m-2">
-                    <FaLocationDot /> {searchedOrder.UserInfo.formData.address}
-                  </div>
-                  <div className="bill-head m-2">
-                    <FaPhone /> {searchedOrder.UserInfo.formData.phone}
-                  </div>
-                  <div className="bill-head m-2">
-                    <MdAttachEmail /> {searchedOrder.UserInfo.formData.email}
-                  </div>
-                </Col>
-              </Row>
+              <>
+                <Row>
+                  <Col md={12} lg={4} className="border-left order-card">
+                    <ProductBillDetails CartInfo={searchedOrder.CartInfo} />
+                    <hr />
+                    <div className="d-flex justify-content-between">
+                      <div className="bill-head">الإجمالي</div>
+                      <div className="bill-head">{SubTotal()} جنيه </div>
+                    </div>
+                  </Col>
+                  <Col md={12} lg={4} className="border-left order-card">
+                    <ProductsDetails CartInfo={searchedOrder.CartInfo} />
+                  </Col>
+                  <Col md={12} lg={4} className="order-card">
+                    <div className="card-head">معلومات التوصيل </div>
+                    <div className="bill-head m-2">
+                      <IoMdPerson /> {searchedOrder.UserInfo.formData.name}
+                    </div>
+                    <div className="bill-head m-2">
+                      <FaLocationDot />{" "}
+                      {searchedOrder.UserInfo.formData.address}
+                    </div>
+                    <div className="bill-head m-2">
+                      <FaPhone /> {searchedOrder.UserInfo.formData.phone}
+                    </div>
+                    <div className="bill-head m-2">
+                      <MdAttachEmail /> {searchedOrder.UserInfo.formData.email}
+                    </div>
+                  </Col>
+                </Row>
+                <Button
+                  onClick={() => {
+                    dispatch(DeleteOrderByOrderId(searchedOrder.orderId));
+                  }}
+                >
+                  حذف الاوردر
+                </Button>
+              </>
             )
           ) : (
             "  النتيجه : "

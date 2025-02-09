@@ -36,8 +36,11 @@ const OrderSlice = createSlice({
         });
       }
     },
+    DeleteOrderByOrderId: (state, action) => {
+      state.OrderData.filter((order) => order.orderId !== action.payload);
+    },
   },
 });
 
-export const { UpdateOrderAndUser } = OrderSlice.actions;
+export const { UpdateOrderAndUser, DeleteOrderByOrderId } = OrderSlice.actions;
 export default OrderSlice.reducer;

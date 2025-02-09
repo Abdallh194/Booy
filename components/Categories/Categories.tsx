@@ -1,6 +1,5 @@
 import Loading from "@/Loading/Loading";
 import Image from "next/image";
-import Link from "next/link";
 import React, { memo } from "react";
 import { Col, Row } from "react-bootstrap";
 
@@ -9,13 +8,7 @@ const Categories = ({ loading, Categories }: ICategories) => {
     <Loading error={null} status={loading}>
       <Row className="Categoris">
         {Categories.map((el, idx) => (
-          <Col
-            as={Link}
-            href={`categories/${el.cat}`}
-            key={idx}
-            className="categoris-Card"
-            lg={2}
-          >
+          <Col key={idx} className="categoris-Card" lg={2}>
             <Image
               src={el.img}
               alt=""

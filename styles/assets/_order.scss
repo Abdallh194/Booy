@@ -39,6 +39,9 @@
     font-weight: 600;
     margin-bottom: 15px;
   }
+  .mt-4 {
+    margin-top: 0 !important;
+  }
   @media (max-width: 992px) {
     .order-card {
       margin: 20px 0px;

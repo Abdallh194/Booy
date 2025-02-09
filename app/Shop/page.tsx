@@ -23,6 +23,7 @@ const Page = () => {
     setisDisabled,
     setselectedcat,
     filteredBooks,
+    selectedCat,
   } = useShop();
 
   const { TotalQuantity, quantityStyle, wishlistStyle } = useCart();
@@ -73,7 +74,7 @@ const Page = () => {
       </Container>
 
       <Container style={{ maxWidth: "1575px" }}>
-        <Headers setselectedcat={setselectedcat} />
+        <Headers setselectedcat={setselectedcat} selectedCat={selectedCat} />
         <BookLoop
           Books={filteredBooks}
           loading={loading}

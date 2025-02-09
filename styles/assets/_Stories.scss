@@ -1,0 +1,38 @@
+.Stories {
+  margin-top: 40px;
+  .header {
+    font-size: 32px;
+    text-align: center;
+  }
+  .Story-Card {
+    margin: 40px 0;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+
+    .desc {
+      margin-top: 15px;
+    }
+    .more {
+      margin-top: 20px;
+
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      background-color: $dark-color;
+      color: $gold-color;
+      width: fit-content;
+    }
+  }
+  .Image-Card {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    .img-fluid {
+      display: block;
+      margin: 10px auto;
+    }
+  }
+}

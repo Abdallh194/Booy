@@ -79,7 +79,7 @@ declare type IFormData = {
 };
 declare interface IOrdersProps {
   UserData: IFormData;
-  OrderData: TDataType;
+  OrderData: Order[];
 }
 
 declare interface CartItem {
