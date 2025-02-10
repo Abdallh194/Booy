@@ -4,11 +4,12 @@ import { useEffect, useState, useMemo } from "react";
 
 const useShop = () => {
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(GetAllBooksThunck());
-  }, [dispatch]);
   const { Books, error, loading } = useAppSelector((s) => s.books);
+  useEffect(() => {
+    if (!Books.length) {
+      dispatch(GetAllBooksThunck());
+    }
+  }, [dispatch, Books.length]);
 
   const [selectedCat, setselectedcat] = useState("All");
   const [filteredBooks, setFilteredBooks] = useState<IBook[]>([]);

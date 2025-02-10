@@ -68,8 +68,8 @@ const Checkout = () => {
               setUserInfo={setUserInfo}
             />
             <CriditCardPayment
-              setconfirmCriditCard={setconfirmCriditCard}
-              confirmCriditCard={confirmCriditCard}
+              setConfirmCreditCard={setconfirmCriditCard}
+              confirmCreditCard={confirmCriditCard}
               isAnimate={isAnimate}
               setIsAnimate={setIsAnimate}
             />

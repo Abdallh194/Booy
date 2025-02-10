@@ -7,15 +7,12 @@ const useCart = () => {
   const [isAnimate, setIsAnimate] = useState(false);
   const wishlist = useAppSelector((s) => s.wishlist.items);
   const [isAnimateWishlist, setisAnimateWishlist] = useState(false);
-  const quantityStyle = `basketQuantity ${isAnimate ? "pumpCartQuantity" : ""}`;
-  const wishlistStyle = `basketQuantity ${
-    isAnimateWishlist ? "pumpCartQuantity" : ""
-  }`;
 
+  const { items, productFullInfo } = useAppSelector((s) => s.cart);
   useEffect(() => {
     dispatch(GetAllCartBooksThunk());
   }, [dispatch]);
-  const { items, productFullInfo } = useAppSelector((s) => s.cart);
+
   const TotalQuantity = Object.values(items).reduce(
     (acc, item) => acc + item,
     0
@@ -58,9 +55,11 @@ const useCart = () => {
   return {
     TotalQuantity,
     isAnimate,
-    quantityStyle,
+    quantityStyle: `basketQuantity ${isAnimate ? "pumpCartQuantity" : ""}`,
     CartInfo,
-    wishlistStyle,
+    wishlistStyle: `basketQuantity ${
+      isAnimateWishlist ? "pumpCartQuantity" : ""
+    }`,
     SubTotal,
   };
 };

@@ -1,4 +1,5 @@
 "use client";
+
 import {
   CardActions,
   CardContent,
@@ -9,39 +10,66 @@ import {
   Button,
 } from "@mui/joy";
 import { Alert } from "@mui/material";
-import { memo, useState } from "react";
+import { memo, useState, useCallback, useMemo } from "react";
 import { Form, Spinner } from "react-bootstrap";
 import { FaCheck, FaCreditCard, FaInfo } from "react-icons/fa";
 import { IoMdPerson } from "react-icons/io";
 
-type TCriditProps = {
-  setconfirmCriditCard: (value: boolean) => void;
+type TCreditProps = {
+  setConfirmCreditCard: (value: boolean) => void;
   setIsAnimate: (value: boolean) => void;
-  confirmCriditCard: boolean;
+  confirmCreditCard: boolean;
   isAnimate: boolean;
 };
-const CriditCardPayment = ({
-  setconfirmCriditCard,
-  confirmCriditCard,
+
+const CreditCardPayment = ({
+  setConfirmCreditCard,
+  confirmCreditCard,
   isAnimate,
   setIsAnimate,
-}: TCriditProps) => {
-  const [cardNumber, setcardNumber] = useState("");
-  const [Expirydate, setExpirydate] = useState("");
-  const [cvv, setcvv] = useState("");
-  const [cardholder, setcardholder] = useState("");
-  const [dataerror, setdataerror] = useState(false);
+}: TCreditProps) => {
+  const [formData, setFormData] = useState({
+    cardNumber: "",
+    expiryDate: "",
+    cvv: "",
+    cardholder: "",
+  });
+
+  const [dataError, setDataError] = useState(false);
+
+  const isFormValid = useMemo(() => {
+    return (
+      formData.cardNumber.length === 16 &&
+      /^\d{2}\/\d{2}$/.test(formData.expiryDate) &&
+      /^[0-9]{3,4}$/.test(formData.cvv) &&
+      formData.cardholder.trim().length > 0
+    );
+  }, [formData]);
+
+  const handleInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    },
+    []
+  );
+
+  const handleSubmit = useCallback(() => {
+    setIsAnimate(true);
+    if (isFormValid) {
+      setConfirmCreditCard(true);
+      setDataError(false);
+    } else {
+      setDataError(true);
+      setConfirmCreditCard(false);
+    }
+  }, [isFormValid, setIsAnimate, setConfirmCreditCard]);
 
   return (
-    <Form
-      className="card-content"
-      onSubmit={(e) => {
-        e.preventDefault();
-      }}
-    >
-      {dataerror && (
+    <Form className="card-content" onSubmit={(e) => e.preventDefault()}>
+      {dataError && (
         <Alert variant="filled" severity="error">
-          هناك بعض الاخطاء في بيانات الكارت
+          هناك بعض الأخطاء في بيانات الكارت
         </Alert>
       )}
       <h3 className="mt-4"> بيانات كارت الدفع</h3>
@@ -56,84 +84,71 @@ const CriditCardPayment = ({
           <FormLabel>رقم الكارت </FormLabel>
           <Input
             className="input"
-            type="number"
+            type="text"
+            name="cardNumber"
+            value={formData.cardNumber}
             endDecorator={<FaCreditCard />}
-            onChange={(e) => {
-              setcardNumber(e.target.value);
-            }}
-            disabled={confirmCriditCard}
+            onChange={handleInputChange}
+            disabled={confirmCreditCard}
             required
           />
         </FormControl>
         <FormControl>
-          <FormLabel>تاريخ انتهاء الكارت </FormLabel>
+          <FormLabel>تاريخ انتهاء الكارت (MM/YY)</FormLabel>
           <Input
             className="input"
-            type="number"
+            type="text"
+            name="expiryDate"
+            placeholder="MM/YY"
+            value={formData.expiryDate}
             endDecorator={<FaCreditCard />}
-            onChange={(e) => {
-              setExpirydate(e.target.value);
-            }}
+            onChange={handleInputChange}
             required
-            disabled={confirmCriditCard}
+            disabled={confirmCreditCard}
           />
         </FormControl>
         <FormControl>
           <FormLabel>CVC/CVV</FormLabel>
           <Input
             className="input"
-            type="number"
+            type="text"
+            name="cvv"
+            value={formData.cvv}
             endDecorator={<FaInfo />}
-            onChange={(e) => {
-              setcvv(e.target.value);
-            }}
+            onChange={handleInputChange}
             required
-            disabled={confirmCriditCard}
+            disabled={confirmCreditCard}
           />
         </FormControl>
         <FormControl sx={{ gridColumn: "1/-1" }}>
           <FormLabel>إسم حامل الكارت</FormLabel>
           <Input
             className="input"
-            placeholder=" اسم حامل الكارت بكامل"
-            onChange={(e) => {
-              setcardholder(e.target.value);
-            }}
+            name="cardholder"
+            placeholder="اسم حامل الكارت بالكامل"
+            value={formData.cardholder}
+            onChange={handleInputChange}
             endDecorator={<IoMdPerson />}
             required
-            disabled={confirmCriditCard}
+            disabled={confirmCreditCard}
           />
         </FormControl>
         <Checkbox label="حفظ الكارت" sx={{ gridColumn: "1/-1", my: 1 }} />
         <CardActions sx={{ gridColumn: "1/-1" }}>
           <Button
             variant="solid"
-            color={confirmCriditCard ? "success" : "primary"}
+            color={confirmCreditCard ? "success" : "primary"}
             type="submit"
-            disabled={isAnimate || confirmCriditCard}
-            onClick={() => {
-              setIsAnimate(true);
-              if (
-                cardholder.length > 0 &&
-                cvv.length > 0 &&
-                Expirydate.length > 0 &&
-                cardNumber.length > 0
-              ) {
-                setconfirmCriditCard(true);
-                setdataerror(false);
-              } else {
-                setdataerror(true);
-                setconfirmCriditCard(false);
-              }
-            }}
+            disabled={isAnimate || confirmCreditCard}
+            onClick={handleSubmit}
           >
             {isAnimate ? (
               <>
-                <Spinner animation="border" size="sm" /> يتم المراجعه .....
+                <Spinner animation="border" size="sm" /> يتم المراجعة...
               </>
-            ) : confirmCriditCard ? (
+            ) : confirmCreditCard ? (
               <>
-                تم تاكيد الدفع <FaCheck />
+                تم تأكيد الدفع <FaCheck />
               </>
             ) : (
               <>دفع</>
@@ -144,4 +159,5 @@ const CriditCardPayment = ({
     </Form>
   );
 };
-export default memo(CriditCardPayment);
+
+export default memo(CreditCardPayment);
