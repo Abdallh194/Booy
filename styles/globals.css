@@ -118,7 +118,7 @@ body {
 .navbar .links a {
   margin: 0 13px;
   color: #333;
-  font-size: 18px;
+  font-size: 17px;
 }
 @media (max-width: 767px) {
   .navbar .logo .pt_01,
@@ -562,6 +562,7 @@ footer .copy a {
   text-decoration: underline !important;
   padding: 10px;
   margin-top: 30px;
+  color: #3d464d;
   margin-right: 43px;
   font-size: 17px;
   cursor: pointer;
@@ -899,7 +900,7 @@ footer .copy a {
   align-items: center;
 }
 .cart .dlt {
-  color: red;
+  color: white;
 }
 .cart .back-shop {
   width: 187px;

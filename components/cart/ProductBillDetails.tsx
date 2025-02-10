@@ -13,7 +13,7 @@ const ProductBillDetails = ({ CartInfo }: ICartProps) => {
           <div className="bill-head">
             {e.title} * {e.Qunatity}
           </div>
-          <div className="bill-head">{e.price} جنيه </div>
+          <div className="bill-head">{e.price} ج.م </div>
         </div>
       ))}
     </>

@@ -13,6 +13,8 @@ import { FaBookOpenReader } from "react-icons/fa6";
 import { MdOutlineTouchApp } from "react-icons/md";
 import { CiShoppingBasket } from "react-icons/ci";
 import { HiHeart } from "react-icons/hi";
+import { useMemo } from "react";
+import Link from "next/link";
 
 const Page = () => {
   const {
@@ -30,6 +32,27 @@ const Page = () => {
   const { WishListWithQuantity } = useWishlist();
   const { loadingcat, CategoriesData } = useCategoreis();
 
+  const filteredBooksMemo = useMemo(() => filteredBooks, [filteredBooks]);
+  const wishListLength = useMemo(
+    () => WishListWithQuantity.length,
+    [WishListWithQuantity]
+  );
+
+  const buttons = [
+    {
+      text: "إبدا الأن",
+      icon: <FaBookOpenReader />,
+      className: "start",
+      href: "#Shopping",
+    },
+    {
+      text: "إقراء المزيد",
+      icon: <MdOutlineTouchApp />,
+      className: "learn",
+      href: "#Shopping",
+    },
+  ];
+
   return (
     <div className="Shop">
       <Container>
@@ -42,13 +65,11 @@ const Page = () => {
               مجانا
             </div>
             <div className="btns d-flex align-items-center">
-              <div className="start">
-                إبدا الأن <FaBookOpenReader />
-              </div>
-              <div className="learn">
-                إقراء المزيد
-                <MdOutlineTouchApp />
-              </div>
+              {buttons.map((btn, index) => (
+                <Link href={btn.href} key={index} className={btn.className}>
+                  {btn.text} {btn.icon}
+                </Link>
+              ))}
             </div>
           </Col>
           <Col xs={12} sm={12} md={12} lg={6} className="Image-Card">
@@ -58,6 +79,7 @@ const Page = () => {
               width={500}
               height={500}
               className="img-fluid"
+              priority
             />
             <div className="circle1"></div>
             <div className="circle2"></div>
@@ -76,7 +98,7 @@ const Page = () => {
       <Container style={{ maxWidth: "1575px" }}>
         <Headers setselectedcat={setselectedcat} selectedCat={selectedCat} />
         <BookLoop
-          Books={filteredBooks}
+          Books={filteredBooksMemo}
           loading={loading}
           error={error}
           RemaingHandler={RemaingHandler}
@@ -84,7 +106,8 @@ const Page = () => {
           setisDisabled={setisDisabled}
         />
       </Container>
-      {TotalQuantity > 0 ? (
+
+      {TotalQuantity > 0 && (
         <QuantityCounter
           className={`icon ${quantityStyle}`}
           to="/Cart"
@@ -92,19 +115,16 @@ const Page = () => {
         >
           <CiShoppingBasket />
         </QuantityCounter>
-      ) : (
-        ""
       )}
-      {WishListWithQuantity.length > 0 ? (
+
+      {wishListLength > 0 && (
         <QuantityCounter
           className={`icon favicon ${wishlistStyle}`}
           to="/Wishlist"
-          length={WishListWithQuantity.length}
+          length={wishListLength}
         >
           <HiHeart />
         </QuantityCounter>
-      ) : (
-        ""
       )}
     </div>
   );

@@ -8,7 +8,7 @@ const TotalCard = ({ SubTotal }: ITotal) => {
     <div className="total-card">
       <div className="d-flex mt-4 justify-content-between">
         <div className="bill-head">الخصم</div>
-        <div className="bill-head">0 جنيه </div>
+        <div className="bill-head">0 ج.م </div>
       </div>
       <hr />
       <div className="d-flex justify-content-between">
@@ -18,7 +18,7 @@ const TotalCard = ({ SubTotal }: ITotal) => {
       <hr />
       <div className="d-flex justify-content-between">
         <div className="bill-head">الإجمالي</div>
-        <div className="bill-head">{SubTotal()} جنيه </div>
+        <div className="bill-head">{SubTotal()} ج.م </div>
       </div>
     </div>
   );

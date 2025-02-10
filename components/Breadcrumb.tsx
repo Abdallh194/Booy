@@ -16,15 +16,16 @@ const Breadcrumbs = () => {
         {pathnames.map((value, index) => {
           const to = `/${pathnames.slice(0, index + 1).join("/")}`;
           const isLast = index === pathnames.length - 1;
+          const decodedValue = decodeURIComponent(value); // فك ترميز النص
 
           return isLast ? (
             <li className="breadcrumb-item active" key={to}>
-              {value.charAt(0).toUpperCase() + value.slice(1)}
+              {decodedValue.charAt(0).toUpperCase() + decodedValue.slice(1)}
             </li>
           ) : (
             <li className="breadcrumb-item" key={to}>
-              <Link href={to}>
-                {value.charAt(0).toUpperCase() + value.slice(1)}
+              <Link href="#">
+                {decodedValue.charAt(0).toUpperCase() + decodedValue.slice(1)}
               </Link>
             </li>
           );

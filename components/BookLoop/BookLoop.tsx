@@ -24,58 +24,70 @@ const BookLoop: React.FC<BooksListProps> = ({
 }) => {
   const dispatch = useAppDispatch();
 
+  const handleWishlistClick = (id: number, isLiked: boolean) => {
+    if (isLiked) {
+      dispatch(DeleteFavItem(id));
+    } else {
+      dispatch(AddItemToWishList(id));
+    }
+  };
+
   return (
     <Loading status={loading} error={error}>
-      <Row>
-        {Books.map((el, idx) => {
+      <Row id="Shopping">
+        {Books.map((book, idx) => {
+          const isMaxReached = book.Qunatity === book.max;
+
           return (
             <Col key={idx} xs={6} sm={6} md={6} lg={2} className="book-Card">
               <div className="bookfav">
                 {isfav ? (
                   <div
                     className="dlt"
-                    onClick={() => {
-                      dispatch(DeleteFavItem(el.id));
-                    }}
+                    onClick={() => dispatch(DeleteFavItem(book.id))}
                   >
                     <RiDeleteBin5Line />
                   </div>
                 ) : (
                   <>
                     <div className="discount">خصم 19%</div>
-                    {el.isLiked ? (
-                      <Tooltip title="Item added to wishlist">
-                        <IconButton>
+                    <Tooltip
+                      title={
+                        book.isLiked
+                          ? "Item added to wishlist"
+                          : "Add to favourites"
+                      }
+                    >
+                      <IconButton
+                        onClick={() =>
+                          handleWishlistClick(book.id, book.isLiked)
+                        }
+                      >
+                        {book.isLiked ? (
                           <FaHeart
                             className="fav-icon"
                             style={{ color: "red" }}
                           />
-                        </IconButton>
-                      </Tooltip>
-                    ) : (
-                      <Tooltip title="Add to favourites">
-                        <IconButton
-                          onClick={() => {
-                            dispatch(AddItemToWishList(el.id));
-                          }}
-                        >
+                        ) : (
                           <FaRegHeart className="fav-icon" />
-                        </IconButton>
-                      </Tooltip>
-                    )}
+                        )}
+                      </IconButton>
+                    </Tooltip>
                   </>
                 )}
               </div>
+
               <Image
-                src={el.img}
-                alt={el.title}
+                src={book.img}
+                alt={book.title}
                 height={100}
                 width={100}
                 className="img-fluid"
               />
+
               <div className="BookDetails">
                 <div className="desc">
-                  <div className="title">كتاب {el.title} </div>
+                  <div className="title">كتاب {book.title} </div>
                   <Rating
                     name="simple"
                     value={5}
@@ -83,23 +95,23 @@ const BookLoop: React.FC<BooksListProps> = ({
                   />
 
                   <div className="price">
-                    السعر : {el.price}{" "}
-                    <span>{Number(el.price / 0.9).toFixed(0)}</span>
+                    السعر : {book.price} ج.م{" "}
+                    <span> {Number(book.price / 0.9).toFixed(0)} ج.م</span>
                   </div>
                 </div>
-                {el.Qunatity > 0 ? (
+
+                {book.Qunatity > 0 && (
                   <div className="qty">
-                    اشتريت {el.Qunatity} المتاح للشراء{" "}
-                    {RemaingHandler(el.max, el.Qunatity)}
+                    اشتريت {book.Qunatity} المتاح للشراء{" "}
+                    {RemaingHandler(book.max, book.Qunatity)}
                   </div>
-                ) : (
-                  ""
                 )}
+
                 <Button
                   className="add"
-                  disabled={isDisabled || el.max == el.Qunatity}
+                  disabled={isDisabled || isMaxReached}
                   onClick={() => {
-                    dispatch(AddItemToCart(el.id));
+                    dispatch(AddItemToCart(book.id));
                     setisDisabled(true);
                   }}
                 >
@@ -107,15 +119,11 @@ const BookLoop: React.FC<BooksListProps> = ({
                     <>
                       <Spinner animation="border" size="sm" /> تحميل ...
                     </>
+                  ) : isMaxReached ? (
+                    "لقد وصلت للحد الأقصى"
                   ) : (
                     <>
-                      {el.Qunatity === el.max ? (
-                        "لقد وصلت للحد الاقصي"
-                      ) : (
-                        <>
-                          أضف للسلة <BiSolidCartAdd />
-                        </>
-                      )}
+                      أضف للسلة <BiSolidCartAdd />
                     </>
                   )}
                 </Button>

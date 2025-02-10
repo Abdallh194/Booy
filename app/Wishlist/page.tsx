@@ -9,7 +9,7 @@ import empty from "@/assets/LottieFiles/empty.json";
 import dynamic from "next/dynamic";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
-const Page = () => {
+const WishlistPage = () => {
   const { loading, error, RemaingHandler, isDisabled, setisDisabled } =
     useShop();
   const { WishListWithQuantity } = useWishlist();
@@ -39,4 +39,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default WishlistPage;

@@ -1,5 +1,6 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import {
   Button,
   Col,
@@ -11,8 +12,18 @@ import {
 
 import Image from "next/image";
 import Socials from "./Socials";
+import { useRouter } from "next/navigation";
 
 const HomeSearch = () => {
+  const termref = useRef<HTMLInputElement>(null);
+  const router = useRouter();
+
+  const handleSearch = () => {
+    const searchterm = termref.current?.value?.trim();
+    if (!searchterm) return;
+    const encodedTerm = encodeURIComponent(searchterm);
+    router.push(`/Shop/SearchResult/${encodedTerm}`);
+  };
   return (
     <div className="About">
       <Container>
@@ -29,9 +40,10 @@ const HomeSearch = () => {
               <Form className="searchform">
                 <FormControl
                   type="text"
+                  ref={termref}
                   placeholder="إبحث عن الكتاب المفضل لديك ....."
                 />
-                <Button type="submit" className="btn btn-primary">
+                <Button className="btn btn-primary" onClick={handleSearch}>
                   إبحث الأن
                 </Button>
               </Form>

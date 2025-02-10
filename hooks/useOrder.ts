@@ -5,7 +5,18 @@ const useOrder = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { OrderData } = useAppSelector((state) => state.order);
   const [loading, isloading] = useState(false);
-  const [searchedOrder, setSearchedOrder] = useState<Order>();
+  const [searchedOrder, setSearchedOrder] = useState<Order | undefined>({
+    orderId: 0,
+    CartInfo: [],
+    UserInfo: {
+      formData: {
+        name: "abdallh",
+        address: "العتوه البحرية قطور طنطا",
+        email: "Examle@example.com",
+        phone: 1,
+      },
+    },
+  });
   const SubTotal = () => {
     let total = 0;
     searchedOrder?.CartInfo.forEach(
@@ -20,7 +31,9 @@ const useOrder = () => {
     if (inputRef.current) {
       const orderId = +inputRef.current.value;
       const foundOrder = OrderData.find((order) => order.orderId === orderId);
+
       setSearchedOrder(foundOrder);
+
       isloading(true);
     }
   };

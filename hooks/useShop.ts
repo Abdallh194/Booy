@@ -48,12 +48,14 @@ const useShop = () => {
   return {
     RemaingHandler,
     error,
+    ProductsFullInfo,
     loading,
     isDisabled,
     setisDisabled,
     setselectedcat,
     filteredBooks,
     selectedCat,
+    Books,
   };
 };
 
